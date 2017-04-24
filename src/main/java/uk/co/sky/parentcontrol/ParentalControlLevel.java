@@ -19,4 +19,13 @@ public enum ParentalControlLevel {
     public String getLevel() {
         return level;
     }
+
+    public static ParentalControlLevel getLevel(String level){
+        for (ParentalControlLevel day : ParentalControlLevel.values()) {
+            if (day.getLevel().equals(level)) {
+                return day;
+            }
+        }
+        return null;
+    }
 }

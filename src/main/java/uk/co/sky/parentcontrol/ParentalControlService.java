@@ -47,7 +47,7 @@ public class ParentalControlService {
         if (movieClassification == null || movieClassification.trim().length() == 0) {
             throw new TechnicalFailureException();
         }
-        return new Movie("", "", ParentalControlLevel.valueOf(movieClassification));
+        return new Movie("", "", ParentalControlLevel.getLevel(movieClassification));
     }
 
     public MovieService getMovieService() {

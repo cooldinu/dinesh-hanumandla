@@ -72,6 +72,15 @@ public class ParentalControlServiceTest {
     }
 
     @Test
+    public void testIsParentalMoviePreferenceMovieNotSuitable_1() throws Exception {
+        when(movieService.getParentalControlLevel("1")).thenReturn("15");
+
+        boolean canWatchMovie = parentalControlService.isParentalMoviePreference(ParentalControlLevel.U, "1");
+
+        assertEquals(false, canWatchMovie);
+    }
+
+    @Test
     public void testIsParentalMoviePreferenceInValidMovieId() throws Exception {
         when(movieService.getParentalControlLevel("1000")).thenThrow(new TitleNotFoundException());
 
